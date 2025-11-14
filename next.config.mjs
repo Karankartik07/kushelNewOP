@@ -13,11 +13,13 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: false,
-  
+  reactStrictMode: true,
+  swcMinify: true,
+
   // Image optimization
   images: {
     domains: ["res.cloudinary.com"],
-    formats: ['image/webp', 'image/avif'],
+    formats: ["image/webp", "image/avif"],
     minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -28,11 +30,11 @@ const nextConfig = {
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: [
-      'react-icons',
-      'framer-motion', 
-      'gsap',
-      'swiper',
-      'react-slick'
+      "react-icons",
+      "framer-motion",
+      "gsap",
+      "swiper",
+      "react-slick",
     ],
     // Temporarily disable problematic features
     // optimizeCss: true,
@@ -53,7 +55,7 @@ const nextConfig = {
     if (!dev && !isServer) {
       // Advanced code splitting
       config.optimization.splitChunks = {
-        chunks: 'all',
+        chunks: "all",
         maxInitialRequests: 30,
         maxAsyncRequests: 30,
         minSize: 10000,
@@ -62,56 +64,56 @@ const nextConfig = {
           // Mobile-specific chunks
           mobile: {
             test: /[\\/]node_modules[\\/](swiper|react-slick)[\\/]/,
-            name: 'mobile',
-            chunks: 'all',
+            name: "mobile",
+            chunks: "all",
             priority: 20,
             maxSize: 100000,
           },
           // React ecosystem - highest priority for critical components
           react: {
             test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
-            name: 'react',
-            chunks: 'all',
+            name: "react",
+            chunks: "all",
             priority: 40,
             maxSize: 150000,
           },
           // Critical components - load first
           critical: {
             test: /[\\/]app[\\/](COMMON|components[\\/]Home[\\/](HomeNewBanner|HomeTech))[\\/]/,
-            name: 'critical',
-            chunks: 'all',
+            name: "critical",
+            chunks: "all",
             priority: 35,
             maxSize: 100000,
           },
           // Icons and UI libraries
           icons: {
             test: /[\\/]node_modules[\\/](react-icons|@heroicons)[\\/]/,
-            name: 'icons',
-            chunks: 'all',
+            name: "icons",
+            chunks: "all",
             priority: 25,
             maxSize: 50000,
           },
           // Animation libraries
           animations: {
             test: /[\\/]node_modules[\\/](framer-motion|gsap|lenis)[\\/]/,
-            name: 'animations',
-            chunks: 'all',
+            name: "animations",
+            chunks: "all",
             priority: 15,
             maxSize: 100000,
           },
           // Vendor libraries
           vendor: {
             test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all',
+            name: "vendors",
+            chunks: "all",
             priority: 10,
             maxSize: 200000,
           },
           // Common chunks
           common: {
-            name: 'common',
+            name: "common",
             minChunks: 2,
-            chunks: 'all',
+            chunks: "all",
             priority: 5,
             maxSize: 100000,
           },
@@ -122,10 +124,10 @@ const nextConfig = {
       config.optimization.usedExports = true;
       config.optimization.sideEffects = false;
       config.optimization.concatenateModules = true;
-      
+
       // CSS optimization
       config.optimization.minimize = true;
-      
+
       // Module concatenation for better performance
       config.optimization.concatenateModules = true;
     }
@@ -973,7 +975,7 @@ const nextConfig = {
       },
       {
         source: "/Ai",
-         destination: "/portfolio/aipartscenter",
+        destination: "/portfolio/aipartscenter",
         permanent: true,
       },
       {
@@ -981,7 +983,7 @@ const nextConfig = {
         destination: "/contact-us",
         permanent: true,
       },
-       {
+      {
         source: "/headless-commerce1",
         destination: "/service/headless-commerce",
         permanent: true,
@@ -1011,7 +1013,38 @@ const nextConfig = {
         destination: "/service/ecommerce-development",
         permanent: true,
       },
-
+    ];
+  },
+  // Cache static assets aggressively for better real-world performance
+  async headers() {
+    return [
+      {
+        source: "/_next/static/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/fonts/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/:path*.(jpg|jpeg|png|gif|svg|webp|avif)$",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
     ];
   },
 };
