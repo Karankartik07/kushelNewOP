@@ -1,0 +1,25 @@
+.overlay-black {
+  height: 100%;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overlay-black h1 {
+  color: white;
+  font-size: 45px;
+  font-weight: 700;
+}
+
+.michi-hero-main {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://res.cloudinary.com/dd9tagtiw/image/upload/v1761731247/f64225c7531b9c76a6c27407c8521d89b5bb76b7_j6d0gl.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 350px;
+  width: 100%;
+  max-width: 1720px;
+  margin: 0 auto;
+}

@@ -1,0 +1,25 @@
+.overlay-black {
+  height: 100%;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overlay-black h1 {
+  color: white;
+  font-size: 45px;
+  font-weight: 700;
+}
+
+.ohio-hero-main {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://res.cloudinary.com/dd9tagtiw/image/upload/v1762342170/Columbus_ohio_ukbbwg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 350px;
+  width: 100%;
+  max-width: 1720px;
+  margin: 0 auto;
+}

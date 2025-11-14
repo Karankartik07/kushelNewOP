@@ -1,0 +1,30 @@
+{
+  "name": "Kushel Digi Solutions",
+  "short_name": "KushelDigi",
+  "description": "Expert eCommerce & BigCommerce Development Company",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dd9tagtiw/image/upload/v1762178645/favicon_k2nsem.ico",
+      "sizes": "any",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "https://res.cloudinary.com/dd9tagtiw/image/upload/v1762178645/favicon_k2nsem.ico",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://res.cloudinary.com/dd9tagtiw/image/upload/v1762178645/favicon_k2nsem.ico",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "orientation": "portrait"
+}
